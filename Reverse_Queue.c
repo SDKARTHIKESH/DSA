@@ -73,8 +73,6 @@ void display(int arr[], int *f, int *r) {
 int main() {
     int queue[SIZE];
     int front = -1, rear = -1;
-    int ans[SIZE]; 
-    int fans = -1, rans = -1;
     int stack[SIZE]; 
     int top = -1; // Stack is initially empty
 
@@ -92,12 +90,12 @@ int main() {
     // Pop elements from the stack and enqueue to the new queue
     for (int i = 1; i <= SIZE; i++) {
         int p = pop(stack, &top);
-        enqueue(p, ans, &fans, &rans);
+        enqueue(p, queue, &front, &rear);
     }
 
     // Display the reversed queue
     printf("The reversed queue: ");
-    display(ans, &fans, &rans);
+    display(queue, &front, &rear);
 
     return 0;
 }
